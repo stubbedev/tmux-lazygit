@@ -3,10 +3,9 @@
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$CURRENT_DIR/utils.sh"
-source "$CURRENT_DIR/helpers.sh"
 
 toggle_lazygit_window() {
-	local lazygit_window_name=$(get_lazygit_window_name)
+	local lazygit_window_name="lazygit"
 	local current_window=$(get_current_window)
 	local current_path=$(tmux display-message -p -F "#{pane_current_path}")
 
