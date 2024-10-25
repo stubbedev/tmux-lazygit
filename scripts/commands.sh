@@ -5,7 +5,6 @@ CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$CURRENT_DIR/utils.sh"
 
 toggle_lazygit_window() {
-
   if [[ -d .git ]] || git rev-parse --git-dir > /dev/null 2>&1; then
     local lazygit_window_name="lazygit"
     local current_window=$(get_current_window)
@@ -21,7 +20,7 @@ toggle_lazygit_window() {
     else
       tmux new-window -c "$current_path" -n "$lazygit_window_name"
       tmux select-window -t "$lazygit_window_name"
-      tmux send-keys -t "$lazygit_window_name" "lazygit" C-m
+      tmux send-keys -t "$lazygit_window_name" "~/.stubbe/bin/tslg" C-m
     fi
   else
     exit 0
