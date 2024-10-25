@@ -6,7 +6,7 @@ source "$CURRENT_DIR/utils.sh"
 
 toggle_lazygit_window() {
 
-  if [ -d .git ] && echo .git || git rev-parse --git-dir > /dev/null 2>&1; then
+  if [[ -d .git ]] || git rev-parse --git-dir > /dev/null 2>&1; then
     local lazygit_window_name="lazygit"
     local current_window=$(get_current_window)
     local current_path=$(tmux display-message -p -F "#{pane_current_path}")
